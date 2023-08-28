@@ -1,14 +1,30 @@
 import kivy
 from kivy.app import App
-from kivy.config import Config
-from kivy.lang import Builder
 from kivy.uix.gridlayout import GridLayout
-from kivy.uix.widget import Widget
+from kivy.config import Config
+from kivy.core.window import Window
+from kivy.lang import Builder
 
-Builder.load_file('calculator.kv') #need to load kv file
+Config.set('graphics', 'resizable', 1)
 
-Config.set('graphics', 'resizable', 1) #makes window resizable
-
-
+Window.size = (400, 600)  # I want the window to be calculator-shaped
 
 
+# Creating Layout class
+class grid(GridLayout):
+
+    # = calls function
+    def calculate(self, calculation):
+        self.display.text = str(eval(calculation))
+
+
+# Creating App class
+class CalculatorApp(App):
+    def build(self):
+        Window.clearcolor = (202, 237, 255)
+        return grid()
+
+
+# creating object and running it
+calcApp = CalculatorApp()
+calcApp.run()
