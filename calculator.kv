@@ -6,7 +6,7 @@
 <grid>:
 	id: calculator
 	display: entry
-	rows: 6
+	rows: 7
 	padding: 5
 	spacing: 5
 
@@ -27,7 +27,7 @@
 			background_normal: ''
 			background_color: (251/255, 240/255, 178/255)
 		CustButton:
-			text: "h"
+			text: "/"
 			on_press: entry.text += self.text
 			background_normal: ''
 			background_color: (255/255, 199/255, 234/255)
@@ -37,8 +37,8 @@
 			background_normal: ''
 			background_color: (216/255, 180/255, 248/255)
 		CustButton:
-			text: "/"
-			on_press: entry.text += self.text
+			text: "<-"
+			on_press: entry.text = ""
 			background_normal: ''
             background_color: (202/255, 237/255, 255/255)
 
